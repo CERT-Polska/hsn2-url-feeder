@@ -1,0 +1,8 @@
+Package: hsn2-url-feeder
+Version: {VER}
+Section: unknown
+Priority: optional
+Architecture: all
+Depends: python, python-hsn2-lib
+Maintainer: Łukasz Siewierski (lukasz.siewierski@cert.pl)
+Description: HSN2 URL Feeder Service. It uses input parameters to create a URL object.
