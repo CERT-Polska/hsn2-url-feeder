@@ -1,4 +1,6 @@
-# Copyright (c) NASK
+#!/usr/bin/python
+
+# Copyright (c) NASK, NCSC
 # 
 # This file is part of HoneySpider Network 2.0.
 # 
@@ -15,20 +17,18 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import unittest
-from hsn2_url_feeder.hsn2urlfeederservice import UrlFeederService
 
+from setuptools import setup
+from setuptools import find_packages
 
-class UrlFeederTest(unittest.TestCase):
-
-    def testSanityChecks(self):
-        self.assertTrue(UrlFeederService(None).sanityChecks(None), True)
-
-    def testExtraOptions(self):
-        parser = object()
-        self.assertTrue(UrlFeederService(None).extraOptions(parser), parser)
-
-
-if __name__ == "__main__":
-    #import sys;sys.argv = ['', 'Test.testName']
-    unittest.main()
+setup(
+    name='hsn2_url-feeder',
+    version='2.0',
+    description='HSN2 URL Feeder Service. It uses input parameters to create a URL object.',
+    author='CERT Polska',
+    author_email='info@cert.pl',
+    packages=find_packages(),
+    url='http://www.honeyspider.net/',
+    license='GPL-3',
+    install_requires=open('requirements.txt').read().splitlines(),
+)

@@ -27,9 +27,6 @@ class UrlFeederTaskProcessor(HSN2TaskProcessor):
 	
 	ORIGIN = 'input'
 
-	def __init__(self, connector, datastore, serviceName, serviceQueue, objectStoreQueue, **extra):
-		HSN2TaskProcessor.__init__(self, connector, datastore, serviceName, serviceQueue, objectStoreQueue, **extra)
-	
 	def paramsToDictionary(self):
 		result = {}
 		for param in self.currentTask.parameters:
@@ -48,7 +45,6 @@ class UrlFeederTaskProcessor(HSN2TaskProcessor):
 			urlObject.addString('referrer', parameters['referrer'])
 		newObjectId = self.osAdapter.objectsPut(self.currentTask.job, self.currentTask.task_id, [urlObject])
 		self.newObjects.extend(newObjectId)
-		
-	
+			
 	def cleanup(self):
 		pass
