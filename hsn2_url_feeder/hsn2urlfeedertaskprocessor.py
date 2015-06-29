@@ -17,11 +17,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from hsn2_commons.hsn2objectwrapper import Object
+from hsn2_commons.hsn2taskprocessor import HSN2TaskProcessor, ParamException
 
-import sys
-from hsn2objectwrapper import Object
-sys.path.append("/opt/hsn2/python/commlib")
-from hsn2taskprocessor import HSN2TaskProcessor, ParamException
 
 class UrlFeederTaskProcessor(HSN2TaskProcessor):
 	
