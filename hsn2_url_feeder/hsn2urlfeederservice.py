@@ -1,9 +1,9 @@
 #!/usr/bin/python -tt
 
 # Copyright (c) NASK
-# 
+#
 # This file is part of HoneySpider Network 2.0.
-# 
+#
 # This is a free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -23,14 +23,14 @@ from hsn2_url_feeder.hsn2urlfeedertaskprocessor import UrlFeederTaskProcessor
 
 
 class UrlFeederService(HSN2Service):
-	serviceName = "url-feeder"
-	description = "HSN 2 URL Feeder Service"
+    serviceName = "url-feeder"
+    description = "HSN 2 URL Feeder Service"
 
-	def extraOptions(self, parser):
-		return parser
+    def extraOptions(self, parser):
+        return parser
 
-	def sanityChecks(self, cliargs):
-		return True
+    def sanityChecks(self, cliargs):
+        return True
 
 if __name__ == '__main__':
-	startService(UrlFeederService, UrlFeederTaskProcessor)
+    startService(UrlFeederService, UrlFeederTaskProcessor)
