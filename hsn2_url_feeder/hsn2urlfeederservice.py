@@ -1,3 +1,5 @@
+#!/usr/bin/python -tt
+
 # Copyright (c) NASK
 #
 # This file is part of HoneySpider Network 2.1.
@@ -15,21 +17,20 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import unittest
-from hsn2_url_feeder.hsn2urlfeederservice import UrlFeederService
+from hsn2_commons.hsn2service import HSN2Service
+from hsn2_commons.hsn2service import startService
+from hsn2_url_feeder.hsn2urlfeedertaskprocessor import UrlFeederTaskProcessor
 
 
-class UrlFeederTest(unittest.TestCase):
+class UrlFeederService(HSN2Service):
+    serviceName = "url-feeder"
+    description = "HSN 2 URL Feeder Service"
 
-    def testSanityChecks(self):
-        self.assertTrue(UrlFeederService(None).sanityChecks(None), True)
+    def extraOptions(self, parser):
+        return parser
 
-    def testExtraOptions(self):
-        parser = object()
-        self.assertTrue(UrlFeederService(None).extraOptions(parser), parser)
+    def sanityChecks(self, cliargs):
+        return True
 
-
-if __name__ == "__main__":
-    #import sys
-    #sys.argv = ['', 'Test.testName']
-    unittest.main()
+if __name__ == '__main__':
+    startService(UrlFeederService, UrlFeederTaskProcessor)

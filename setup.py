@@ -1,8 +1,8 @@
-#!/usr/bin/python -tt
+#!/usr/bin/python
 
-# Copyright (c) NASK
+# Copyright (c) NASK, NCSC
 # 
-# This file is part of HoneySpider Network 2.0.
+# This file is part of HoneySpider Network 2.1.
 # 
 # This is a free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,21 +18,17 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-import sys
-sys.path.append("/opt/hsn2/python/commlib")
-from hsn2service import HSN2Service
-from hsn2service import startService
-from hsn2urlfeedertaskprocessor import UrlFeederTaskProcessor
+from setuptools import setup
+from setuptools import find_packages
 
-class UrlFeederService(HSN2Service):
-	serviceName = "url-feeder"
-	description = "HSN 2 URL Feeder Service"
-
-	def extraOptions(self, parser):
-		return parser
-
-	def sanityChecks(self, cliargs):
-		return True
-
-if __name__ == '__main__':
-	startService(UrlFeederService, UrlFeederTaskProcessor)
+setup(
+    name='hsn2_url-feeder',
+    version='2.0',
+    description='HSN2 URL Feeder Service. It uses input parameters to create a URL object.',
+    author='CERT Polska',
+    author_email='info@cert.pl',
+    packages=find_packages(),
+    url='http://www.honeyspider.net/',
+    license='GPL-3',
+    install_requires=open('requirements.txt').read().splitlines(),
+)
